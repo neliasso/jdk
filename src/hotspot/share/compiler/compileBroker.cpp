@@ -2181,10 +2181,7 @@ CompilerDirectives* DirectivesStack::_bottom = NULL;
 //
 void CompileBroker::invoke_compiler_on_method(CompileTask* task) {
   task->print_ul();
-  if (PrintCompilation) {
-    ResourceMark rm;
-    task->print_tty();
-  }
+
   elapsedTimer time;
 
   CompilerThread* thread = CompilerThread::current();
@@ -2214,6 +2211,11 @@ void CompileBroker::invoke_compiler_on_method(CompileTask* task) {
 
     // Look up matching directives
     directive = DirectivesStack::getMatchingDirective(method, comp);
+
+    if (directive->PrintCompilationOption) {
+      ResourceMark rm;
+      task->print_tty();
+    }
 
     // Update compile information when using perfdata.
     if (UsePerfData) {

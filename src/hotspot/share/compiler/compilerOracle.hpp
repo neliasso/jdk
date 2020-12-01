@@ -56,6 +56,7 @@ class methodHandle;
   option(Break, "break", Bool) \
   option(BreakAtExecute, "BreakAtExecute", Bool) \
   option(BreakAtCompile, "BreakAtCompile", Bool) \
+  option(PrintCompilation, "PrintCompilation", Bool) \
   option(PrintAssembly, "PrintAssembly", Bool) \
   option(PrintInlining, "PrintInlining", Bool) \
   option(PrintIntrinsics, "PrintIntrinsics", Bool) \
